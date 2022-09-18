@@ -22,7 +22,7 @@ defmodule Exlivery.Orders.Agent do
 
   defp get_order(state, uuid) do
     case Map.get(state, uuid) do
-      nil -> {:error, "User not found"}
+      nil -> {:error, "Order not found"}
       order -> {:ok, order}
     end
   end
