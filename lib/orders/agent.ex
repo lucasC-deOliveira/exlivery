@@ -18,6 +18,8 @@ defmodule Exlivery.Orders.Agent do
 
   defp update_state(state, %Order{} = order, uuid), do: Map.put(state, uuid, order)
 
+  def list_all, do: Agent.get(__MODULE__, & &1)
+
   def get(uuid), do: Agent.get(__MODULE__, &get_order(&1, uuid))
 
   defp get_order(state, uuid) do
